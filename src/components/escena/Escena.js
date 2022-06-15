@@ -1,5 +1,3 @@
-import React from 'react'
-import Frases from './Frases';
 import styled from 'styled-components';
 
 const Section = styled.div `
@@ -11,23 +9,24 @@ const Section = styled.div `
    justify-content: center;
    padding: 25px;
    border-radius: 20px;
-   `;
+   background: transparent;
+   &.operativo {
+    background: #ffc0cb;
+   }`;
 
 
-const Escena = () => {
+const Escena = ({Frases, estado}) =>
 
-    // Lógica
-    const frases = Frases.map((props, i) => (
-        <Section> {props.txt} </Section>
-        ));
+    Frases.map((props, i) => {
+        return (
+            <Section 
+                key={i + "-Frases"}
+                className={i === estado && "operativo"}
+            >
+                {props.txt}
+            </Section>
+            );
+         });
 
-    // Vista
-  return (
-    <>
-     {frases}
-    </>
-  );
-
-}
 
 export default Escena
