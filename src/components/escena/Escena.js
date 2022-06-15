@@ -1,14 +1,20 @@
 import React from 'react'
+import Frases from './Frases';
 
 const Escena = () => {
 
-const frase =  <p> El nostre heroi estava surant per l'espai sideral quan a la llunyania va albirar una nau espacial </p>;
+    // Lógica
+    const frases = Frases.map((props, i) => (
+        <p> {props.txt} </p>
+        ));
 
+    // Vista
   return (
     <div>
-      {frase}
+     {frases}
     </div>
-  )
+  );
+
 }
 
 export default Escena
